@@ -49,3 +49,118 @@ var x = setInterval(function() {
 
 </body>
 </html>
+
+
+=====================================================================================================================================================================
+                                                                            2nd method ::::
+=================================================================================================================================================================================================
+
+<!DOCTYPE HTML> 
+<html> 
+<head> 
+<style> 
+
+
+ #clockdiv{ 
+    font-family: sans-serif; 
+    color: #fff; 
+    display: inline-block; 
+    font-weight: 100; 
+    text-align: center; 
+    font-size: 14px; 
+} 
+.single-time{ 
+    padding: 10px; 
+    border-radius: 3px; 
+    background: #00BF96; 
+    display: inline-block; 
+} 
+.single-time span{ 
+    padding: 15px; 
+    border-radius: 3px; 
+    background: #00816A; 
+    display: inline-block; 
+} 
+smalltext{ 
+    padding-top: 5px; 
+    font-size: 16px; 
+} 
+
+.countdowntimer-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 30px;
+    background: #000;
+    color: #fff;
+}
+
+</style> 
+</head> 
+<body> 
+
+
+<div class="countdowntimer-section">
+  <div class="countdown-title">
+    <p>Sale In End</p>
+  </div>
+
+  <div id="clockdiv"> 
+
+  <div class="single-time"> 
+    <span class="days" id="day"></span> 
+    <div class="smalltext">Days</div> 
+  </div> 
+
+  <div class="single-time"> 
+    <span class="hours" id="hour"></span> 
+    <div class="smalltext">Hours</div> 
+  </div>
+
+  <div class="single-time"> 
+    <span class="minutes" id="minute"></span> 
+    <div class="smalltext">Minutes</div> 
+  </div> 
+  
+  <div class="single-time"> 
+    <span class="seconds" id="second"></span> 
+    <div class="smalltext">Seconds</div> 
+  </div> 
+</div> 
+
+</div>
+
+
+
+
+  
+<script> 
+  
+var deadline = new Date("12 20, 2022 11:59:00").getTime(); 
+  
+var x = setInterval(function() { 
+  
+var now = new Date().getTime(); 
+var t = deadline - now; 
+var days = Math.floor(t / (1000*60*60*24)); 
+var hours = Math.floor((t%(1000*60*60*24))/(1000 * 60 * 60)); 
+var minutes = Math.floor((t%(1000*60*60)) / (1000 * 60)); 
+var seconds = Math.floor((t%(1000*60)) / 1000); 
+document.getElementById("day").innerHTML =days ; 
+document.getElementById("hour").innerHTML =hours; 
+document.getElementById("minute").innerHTML = minutes;  
+document.getElementById("second").innerHTML =seconds;  
+if (t < 0) { 
+        clearInterval(x); 
+        
+        document.getElementById("day").innerHTML ='0'; 
+        document.getElementById("hour").innerHTML ='0'; 
+        document.getElementById("minute").innerHTML ='0' ;  
+        document.getElementById("second").innerHTML = '0'; } 
+}, 1000); 
+</script> 
+</body> 
+</html> 
+
+
